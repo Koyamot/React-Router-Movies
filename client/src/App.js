@@ -23,7 +23,9 @@ const App = () => {
     }
     getMovies();
   }, []);
-  console.log(movieList)
+
+  console.log("this is from app.js", movieList)
+
   // const addToSavedList = id => {
     // This is stretch. Prevent the same movie from being "saved" more than once
   // };
@@ -37,15 +39,9 @@ const App = () => {
         {/* <SavedList list={} /> */}
         <Switch>
           <Route path="/movies/:id">
-            <Movie movie={movieList}/>
+            <Movie movie={Movie}/>
           </Route>
-          <Route exact path="/">
-            <MovieList movies={movieList} />
-          </Route>
-          <Route path="/movies/:id" render={ (props) => {
-          return(<Movie {...props}/>)
-        }} 
-        />
+          <Route path="/" render={() => <MovieList movies={movieList}/>}/>
         </Switch>
       </div>
   );
